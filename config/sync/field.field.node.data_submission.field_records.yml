@@ -1,0 +1,23 @@
+uuid: 4104d6bc-f5c5-40c1-95c6-1b62cb20ac71
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_records
+    - node.type.data_submission
+id: node.data_submission.field_records
+field_name: field_records
+entity_type: node
+bundle: data_submission
+label: Records
+description: 'An example of some metadata that might be pulled out of the data file.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

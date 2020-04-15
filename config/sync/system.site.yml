@@ -1,0 +1,14 @@
+uuid: eb46a01c-b523-43a3-962f-1cafa4af72d8
+name: 'COVID-19 Data Submission'
+mail: info@example.com
+slogan: ''
+page:
+  403: ''
+  404: ''
+  front: /node
+admin_compact_mode: false
+weight_select_max: 100
+langcode: en
+default_langcode: en
+_core:
+  default_config_hash: yTxtFqBHnEWxQswuWvkjE8mKw2t8oKuCL1q8KnfHuGE

@@ -1,0 +1,23 @@
+uuid: fea7901e-9c43-42f3-ab07-8ef9114fdf5f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.data_submission
+  module:
+    - text
+id: node.data_submission.body
+field_name: body
+entity_type: node
+bundle: data_submission
+label: Body
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+  required_summary: false
+field_type: text_with_summary

@@ -1,0 +1,23 @@
+uuid: bfbeeb35-d98e-4310-aaab-c649b11e56f0
+langcode: en
+status: true
+dependencies:
+  module:
+    - file
+    - node
+id: node.field_submission
+field_name: field_submission
+entity_type: node
+type: file
+settings:
+  display_field: false
+  display_default: false
+  uri_scheme: private
+  target_type: file
+module: file
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

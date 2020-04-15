@@ -1,0 +1,19 @@
+uuid: 8c1d80ea-b16b-469a-94ab-d80c98d73ee9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_source
+    - node.type.data_submission
+id: node.data_submission.field_source
+field_name: field_source
+entity_type: node
+bundle: data_submission
+label: Source
+description: 'The data source (as distinct from the user uploading the file).'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

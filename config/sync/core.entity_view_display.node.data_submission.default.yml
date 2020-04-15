@@ -1,0 +1,57 @@
+uuid: 925daf8c-1557-436e-9edf-9bd5ca4929da
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.data_submission.body
+    - field.field.node.data_submission.field_records
+    - field.field.node.data_submission.field_source
+    - field.field.node.data_submission.field_submission
+    - node.type.data_submission
+  module:
+    - file
+    - text
+    - user
+id: node.data_submission.default
+targetEntityType: node
+bundle: data_submission
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 101
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_records:
+    weight: 104
+    label: inline
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    type: number_integer
+    region: content
+  field_source:
+    weight: 103
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_submission:
+    weight: 102
+    label: inline
+    settings:
+      use_description_as_link_text: true
+    third_party_settings: {  }
+    type: file_default
+    region: content
+  links:
+    weight: 100
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden: {  }

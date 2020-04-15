@@ -1,0 +1,27 @@
+uuid: a1c25bf9-1c17-4872-8844-fa271ca635af
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_submission
+    - node.type.data_submission
+  module:
+    - file
+id: node.data_submission.field_submission
+field_name: field_submission
+entity_type: node
+bundle: data_submission
+label: Submission
+description: 'The data file being submitted, in JSON or CSV form.'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  file_directory: '[date:custom:Y]-[date:custom:m]'
+  file_extensions: 'json csv'
+  max_filesize: ''
+  description_field: true
+  handler: 'default:file'
+  handler_settings: {  }
+field_type: file

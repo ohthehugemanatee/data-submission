@@ -1,0 +1,44 @@
+uuid: 5bb7bc5d-6f47-49e6-86d1-6acad2d71b21
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.data_submission.body
+    - field.field.node.data_submission.field_records
+    - field.field.node.data_submission.field_source
+    - field.field.node.data_submission.field_submission
+    - node.type.data_submission
+  module:
+    - file
+    - text
+    - user
+id: node.data_submission.teaser
+targetEntityType: node
+bundle: data_submission
+mode: teaser
+content:
+  body:
+    label: hidden
+    type: text_summary_or_trimmed
+    weight: 1
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    region: content
+  field_submission:
+    type: file_default
+    weight: 2
+    region: content
+    label: inline
+    settings:
+      use_description_as_link_text: true
+    third_party_settings: {  }
+  links:
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  field_records: true
+  field_source: true
