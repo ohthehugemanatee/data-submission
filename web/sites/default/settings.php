@@ -91,6 +91,7 @@
 $databases['default']['default'] = array (
   'database' => getenv('DB_NAME'),
   'password' => getenv('DB_PASSWORD'),
+  'username' => getenv('DB_USER'),
   'host' => getenv('DB_HOST'),
   'driver' => getenv('DB_DRIVER'),
   'port' => getenv('DB_PORT'),
@@ -274,7 +275,7 @@ $databases['default']['default'] = array (
  *   $settings['hash_salt'] = file_get_contents('/home/example/salt.txt');
  * @endcode
  */
-$settings['hash_salt'] = '';
+$settings['hash_salt'] = getenv('SALT');
 
 /**
  * Deployment identifier.
