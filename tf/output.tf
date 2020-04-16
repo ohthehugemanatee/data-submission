@@ -25,3 +25,7 @@ output "kube_config" {
 output "host" {
     value = azurerm_kubernetes_cluster.k8s.kube_config.0.host
 }
+
+output "acr_login" {
+  value = azurerm_container_registry.acr.login_server
+}

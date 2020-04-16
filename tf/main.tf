@@ -106,3 +106,11 @@ resource "azurerm_mariadb_database" "coviddata-db" {
   collation           = "utf8_general_ci"
 }
 
+## Container Registry
+resource "azurerm_container_registry" "acr" {
+  name                     = "acr-coviddata"
+  resource_group_name      = azurerm_resource_group.rg_coviddata.name
+  location                 = azurerm_resource_group.rg_coviddata.location
+  sku                      = "Basic"
+  admin_enabled            = false
+}
