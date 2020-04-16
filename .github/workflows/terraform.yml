@@ -2,7 +2,7 @@ name: Terraform CD
 on:
   push:
     branches: [ master ]
-    paths: [tf]
+    paths: [ tf/** ]
 
 jobs:
   build:
