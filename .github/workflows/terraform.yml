@@ -27,4 +27,4 @@ jobs:
         # Azure Access key for state file storage account
         arm_access_key: ${{ secrets.TFSTATE_KEY }}
         path: tf
-        variables: client_id=${{ secrets.AKS_SP_ID }},client_secret=${{ secrets.AKS_SP_SECRET }},ssh_public_key=./id_rsa.pub
+        variables: client_id=${{ secrets.AKS_SP_ID }},client_secret=${{ secrets.AKS_SP_SECRET }}
