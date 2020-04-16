@@ -12,7 +12,7 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v2     
     - name: Terraform Apply for Azure
       uses: ams0/terraform-apply-for-azure-action@v1
       with:
@@ -28,4 +28,4 @@ jobs:
         # Azure Access key for state file storage account
         arm_access_key: ${{ secrets.TFSTATE_KEY }}
         path: tf
-        variables: client_id=${{ secrets.AKS_SP_ID }},client_secret=${{ secrets.AKS_SP_SECRET }}
+        variables: client_id=${{ secrets.AKS_SP_ID }},client_secret=${{ secrets.AKS_SP_SECRET }},ssh_public_key=./id_rsa.pub
