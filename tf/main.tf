@@ -101,7 +101,7 @@ resource "azurerm_mariadb_server" "coviddata-db-server" {
 resource "azurerm_mariadb_database" "coviddata-db" {
   name                = "db-covidata"
   resource_group_name = azurerm_resource_group.k8s.name
-  server_name         = azurerm_mariadb_server.coviddata.name
+  server_name         = azurerm_mariadb_server.coviddata-db-server.name
   charset             = "utf8"
   collation           = "utf8_general_ci"
 }
