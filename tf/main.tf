@@ -80,7 +80,7 @@ resource "azurerm_kubernetes_cluster" "k8s" {
 ## MariaDB
 
 resource "azurerm_mariadb_server" "coviddata-db-server" {
-  name                = "dbs-coviddata"
+  name                = "dbs_coviddata"
   location            = azurerm_resource_group.k8s.location
   resource_group_name = azurerm_resource_group.k8s.name
 
@@ -99,7 +99,7 @@ resource "azurerm_mariadb_server" "coviddata-db-server" {
 }
 
 resource "azurerm_mariadb_database" "coviddata-db" {
-  name                = "db-covidata"
+  name                = "db_covidata"
   resource_group_name = azurerm_resource_group.k8s.name
   server_name         = azurerm_mariadb_server.coviddata-db-server.name
   charset             = "utf8"
