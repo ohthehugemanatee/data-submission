@@ -4,7 +4,10 @@ provider "azurerm" {
 }
 
 terraform {
-    backend "azurerm" {}
+    backend "azurerm" {
+      storage_account_name = "stordeployment"
+      container_name       = "tfstate"
+  }
 }
 
 resource "azurerm_resource_group" "k8s" {
