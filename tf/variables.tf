@@ -38,3 +38,11 @@ variable log_analytics_workspace_location {
 variable log_analytics_workspace_sku {
     default = "PerGB2018"
 }
+
+variable mariadb_admin_user {
+  default = ""
+}
+
+variable mariadb_admin_pass {
+  default = ""
+}

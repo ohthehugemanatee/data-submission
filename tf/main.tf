@@ -76,3 +76,31 @@ resource "azurerm_kubernetes_cluster" "k8s" {
         Environment = "Development"
     }
 }
+
+resource "azurerm_mariadb_server" "coviddata" {
+  name                = "coviddata-db"
+  location            = azurerm_resource_group.k8s.location
+  resource_group_name = azurerm_resource_group.k8s.name
+
+  sku_name = "B_Gen5_2"
+
+  storage_profile {
+    storage_mb            = 51200
+    backup_retention_days = 7
+    geo_redundant_backup  = "Disabled"
+  }
+
+  administrator_login          = var.mariadb_admin_user
+  administrator_login_password = var.mariadb_admin_pass
+  version                      = "10.2"
+  ssl_enforcement              = "Enabled"
+}
+
+resource "azurerm_mariadb_database" "example" {
+  name                = "mariadb_database"
+  resource_group_name = azurerm_resource_group.k8s.name
+  server_name         = azurerm_mariadb_server.coviddata.name
+  charset             = "utf8"
+  collation           = "utf8_general_ci"
+}
+
