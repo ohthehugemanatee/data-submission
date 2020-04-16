@@ -94,7 +94,7 @@ resource "azurerm_mysql_server" "coviddata-db-server" {
 
   administrator_login          = var.mysql_admin_user
   administrator_login_password = var.mysql_admin_pass
-  version                      = "10.2"
+  version                      = "8.0"
   ssl_enforcement              = "Enabled"
 }
 
