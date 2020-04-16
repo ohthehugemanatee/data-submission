@@ -42,8 +42,8 @@ resource "azurerm_log_analytics_solution" "coviddata_log_analytics_solution" {
 
 resource "azurerm_kubernetes_cluster" "k8s" {
     name                = var.cluster_name
-    location            = azurerm_resource_group.k8s.location
-    resource_group_name = azurerm_resource_group.k8s.name
+    location            = azurerm_resource_group.rg_coviddata.location
+    resource_group_name = azurerm_resource_group.rg_coviddata.name
     dns_prefix          = var.dns_prefix
 
     linux_profile {
@@ -81,8 +81,8 @@ resource "azurerm_kubernetes_cluster" "k8s" {
 
 resource "azurerm_mariadb_server" "coviddata-db-server" {
   name                = "dbs-coviddata"
-  location            = azurerm_resource_group.k8s.location
-  resource_group_name = azurerm_resource_group.k8s.name
+  location            = azurerm_resource_group.rg_coviddata.location
+  resource_group_name = azurerm_resource_group.rg_coviddata.name
 
   sku_name = "B_Gen5_2"
 
@@ -100,7 +100,7 @@ resource "azurerm_mariadb_server" "coviddata-db-server" {
 
 resource "azurerm_mariadb_database" "coviddata-db" {
   name                = "db_covidata"
-  resource_group_name = azurerm_resource_group.k8s.name
+  resource_group_name = azurerm_resource_group.rg_coviddata.name
   server_name         = azurerm_mariadb_server.coviddata-db-server.name
   charset             = "utf8"
   collation           = "utf8_general_ci"
