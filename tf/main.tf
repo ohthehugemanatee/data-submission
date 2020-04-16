@@ -108,7 +108,7 @@ resource "azurerm_mysql_database" "coviddata-db" {
 
 ## Container Registry
 resource "azurerm_container_registry" "acr" {
-  name                     = "acr-coviddata"
+  name                     = "acrcoviddata"
   resource_group_name      = azurerm_resource_group.rg_coviddata.name
   location                 = azurerm_resource_group.rg_coviddata.location
   sku                      = "Basic"
