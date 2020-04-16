@@ -77,8 +77,8 @@ resource "azurerm_kubernetes_cluster" "k8s" {
     }
 }
 
-resource "azurerm_mariadb_server" "coviddata" {
-  name                = "coviddata-db"
+resource "azurerm_mariadb_server" "coviddata-db-server" {
+  name                = "dbs-coviddata"
   location            = azurerm_resource_group.k8s.location
   resource_group_name = azurerm_resource_group.k8s.name
 
@@ -96,8 +96,8 @@ resource "azurerm_mariadb_server" "coviddata" {
   ssl_enforcement              = "Enabled"
 }
 
-resource "azurerm_mariadb_database" "example" {
-  name                = "mariadb_database"
+resource "azurerm_mariadb_database" "coviddata-db" {
+  name                = "db-covidata"
   resource_group_name = azurerm_resource_group.k8s.name
   server_name         = azurerm_mariadb_server.coviddata.name
   charset             = "utf8"
