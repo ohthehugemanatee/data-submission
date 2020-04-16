@@ -24,3 +24,6 @@
 /.env
 /.editorconfig
 /.gitattributes
+
+# Ignore .terraform files from local tf state
+*/.terraform
