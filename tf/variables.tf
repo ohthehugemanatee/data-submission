@@ -20,7 +20,7 @@ variable cluster_name {
 }
 
 variable resource_group_name {
-    default = "rg-coviddata"
+    default = "rg-coviddata-drupal"
 }
 
 variable location {
