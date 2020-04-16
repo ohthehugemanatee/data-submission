@@ -77,6 +77,8 @@ resource "azurerm_kubernetes_cluster" "k8s" {
     }
 }
 
+## MariaDB
+
 resource "azurerm_mariadb_server" "coviddata-db-server" {
   name                = "dbs-coviddata"
   location            = azurerm_resource_group.k8s.location
