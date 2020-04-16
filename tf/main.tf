@@ -5,7 +5,7 @@ provider "azurerm" {
 
 terraform {
     backend "azurerm" {
-      storage_account_name = "stordeploy"
+      storage_account_name = "stordeployment"
       container_name       = "tfstate"
   }
 }
