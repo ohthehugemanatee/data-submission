@@ -80,7 +80,7 @@ resource "azurerm_kubernetes_cluster" "k8s" {
 ## MariaDB
 
 resource "azurerm_mariadb_server" "coviddata-db-server" {
-  name                = "dbs_coviddata"
+  name                = "dbs-coviddata"
   location            = azurerm_resource_group.k8s.location
   resource_group_name = azurerm_resource_group.k8s.name
 
