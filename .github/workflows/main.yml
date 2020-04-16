@@ -1,0 +1,41 @@
+# This is a basic workflow to help you get started with Actions
+
+name: CI
+
+# Controls when the action will run. Triggers the workflow on push or pull request
+# events but only for the master branch
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+    # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+    - uses: actions/checkout@v2
+    - name: Azure Login
+      uses: Azure/login@v1
+      with:
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
+    - name: Terraform Apply for Azure
+      uses: ams0/terraform-apply-for-azure-action@v1
+      with:
+        terraform_version: 0.12.17
+        # Azure Service Principal id
+        arm_client_id: ${{ secrets.AZURE_SP_ID }}
+        # Azure Service Principal secret
+        arm_client_secret: ${{ secrets.AZURE_SP_SECRET }}
+        # Azure Subscription id
+        arm_subscription_id:  ${{ secrets.AZURE_SUBSCRIPTION }}
+        # Azure Tenant id
+        arm_tenant_id:  ${{ secrets.AZURE_TENANT }}
+        # Azure Access key for state file storage account
+        arm_access_key: ${{ secrets.TFSTATE_KEY }}
+        path: tf
