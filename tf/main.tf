@@ -77,9 +77,9 @@ resource "azurerm_kubernetes_cluster" "k8s" {
     }
 }
 
-## MariaDB
+## MySQL
 
-resource "azurerm_mariadb_server" "coviddata-db-server" {
+resource "azurerm_mysql_server" "coviddata-db-server" {
   name                = "dbs-coviddata"
   location            = azurerm_resource_group.rg_coviddata.location
   resource_group_name = azurerm_resource_group.rg_coviddata.name
@@ -87,21 +87,21 @@ resource "azurerm_mariadb_server" "coviddata-db-server" {
   sku_name = "B_Gen5_2"
 
   storage_profile {
-    storage_mb            = 51200
+    storage_mb            = 5120
     backup_retention_days = 7
     geo_redundant_backup  = "Disabled"
   }
 
-  administrator_login          = var.mariadb_admin_user
-  administrator_login_password = var.mariadb_admin_pass
+  administrator_login          = var.mysql_admin_user
+  administrator_login_password = var.mysql_admin_pass
   version                      = "10.2"
   ssl_enforcement              = "Enabled"
 }
 
-resource "azurerm_mariadb_database" "coviddata-db" {
+resource "azurerm_mysql_database" "coviddata-db" {
   name                = "db_covidata"
   resource_group_name = azurerm_resource_group.rg_coviddata.name
-  server_name         = azurerm_mariadb_server.coviddata-db-server.name
+  server_name         = azurerm_mysql_server.coviddata-db-server.name
   charset             = "utf8"
   collation           = "utf8_general_ci"
 }

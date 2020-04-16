@@ -1,7 +1,7 @@
 variable "client_id" {}
 variable "client_secret" {}
-variable "mariadb_admin_user" {}
-variable "mariadb_admin_pass" {}
+variable "mysql_admin_user" {}
+variable "mysql_admin_pass" {}
 
 variable "agent_count" {
     default = 3
